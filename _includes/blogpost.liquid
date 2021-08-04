@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div>
+
+<img src="/images/{{ photo }} " width="640"  alt="{{title}}">
+
+<h3>{{ title }}</h3>
+
+</div>
+
+<div id='navigate'>
+
+{% assign previousPost = collections.posts | getPreviousCollectionItem: page %}
+
+  <span class='prev'>
+    {% if previousPost %}<a href="{{ previousPost.url | url }}">Vorige</a>
+    {% else %}
+    &nbsp;
+    {% endif %}
+  </span>
+
+
+{% assign nextPost = collections.posts | getNextCollectionItem: page %}
+
+  <span class='next'>
+    {% if nextPost %}
+    <a href="{{ nextPost.url | url }}">Volgende</a>
+    {% else %}
+    &nbsp;
+    {% endif %}
+  </span>
+
+
+</div>
